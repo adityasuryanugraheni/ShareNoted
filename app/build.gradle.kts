@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
-    id("com.google.gms.google-services")
+    //id("com.google.gms.google-services")
 }
 
 
@@ -46,10 +46,10 @@ android {
 dependencies {
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-messaging")
+    //implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
+    //implementation("com.google.firebase:firebase-auth")
+    //implementation("com.google.firebase:firebase-firestore")
+    //implementation("com.google.firebase:firebase-messaging")
 
     // Room
     val room_version = "2.7.0"
