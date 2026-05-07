@@ -1,7 +1,8 @@
-package com.example.sharenoted
+package com.example.sharenoted.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable // Pastikan ini ter-import
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -14,9 +15,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.sharenoted.R
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onSignUpClick: () -> Unit) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -26,15 +28,19 @@ fun LoginScreen() {
             .fillMaxSize()
             .background(Color.White)
             .padding(24.dp),
-
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
         Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo",
             modifier = Modifier.size(120.dp)
+        )
+        Text(
+            text = "LOGIN",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF2979FF) // Menggunakan warna biru yang sama dengan tombol
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -50,34 +56,17 @@ fun LoginScreen() {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
-
-            colors = CardDefaults.cardColors(
-                containerColor = Color.White
-            ),
-
-            elevation = CardDefaults.cardElevation(
-                defaultElevation = 6.dp
-            )
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
         ) {
-
-            Column(
-                modifier = Modifier.padding(20.dp)
-            ) {
-
-                Text("Email")
-
+            Column(modifier = Modifier.padding(20.dp)) {
+                Text("Email", fontWeight = FontWeight.Medium)
                 Spacer(modifier = Modifier.height(8.dp))
-
                 OutlinedTextField(
                     value = email,
-                    onValueChange = {
-                        email = it
-                    },
+                    onValueChange = { email = it },
                     modifier = Modifier.fillMaxWidth(),
-                    placeholder = {
-                        Text("name@example.com")
-                    },
-
+                    placeholder = { Text("name@example.com") },
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedContainerColor = Color.White,
                         focusedContainerColor = Color.White
@@ -86,22 +75,14 @@ fun LoginScreen() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Text("Password")
-
+                Text("Password", fontWeight = FontWeight.Medium)
                 Spacer(modifier = Modifier.height(8.dp))
-
                 OutlinedTextField(
                     value = password,
-                    onValueChange = {
-                        password = it
-                    },
+                    onValueChange = { password = it },
                     modifier = Modifier.fillMaxWidth(),
                     visualTransformation = PasswordVisualTransformation(),
-
-                    placeholder = {
-                        Text("Enter your password")
-                    },
-
+                    placeholder = { Text("Enter your password") },
                     colors = OutlinedTextFieldDefaults.colors(
                         unfocusedContainerColor = Color.White,
                         focusedContainerColor = Color.White
@@ -111,40 +92,28 @@ fun LoginScreen() {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(
-                    onClick = {
-
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF2979FF)
-                    )
-
+                    onClick = { /* Handle Login */ },
+                    modifier = Modifier.fillMaxWidth().height(50.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2979FF))
                 ) {
-
-                    Text("Log In")
-
+                    Text("Log In", fontWeight = FontWeight.Bold)
                 }
-
             }
-
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Row {
-
             Text("Don't have an account? ")
-
             Text(
                 text = "Sign up",
-                color = Color(0xFF2979FF)
+                color = Color(0xFF2979FF),
+                fontWeight = FontWeight.Bold,
+                // Perbaikan di sini: modifier ditambahkan dengan benar
+                modifier = Modifier.clickable {
+                    onSignUpClick()
+                }
             )
-
         }
-
     }
-
 }
