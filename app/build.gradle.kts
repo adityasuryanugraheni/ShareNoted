@@ -6,7 +6,9 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+
 android {
+
     namespace = "com.example.sharenoted"
     compileSdk = 36
 
