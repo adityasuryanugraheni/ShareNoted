@@ -1,4 +1,4 @@
-package com.example.sharenoted
+package com.example.sharenoted.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.sharenoted.R
 
 @Composable
 fun LoginScreen(onSignUpClick: () -> Unit) {

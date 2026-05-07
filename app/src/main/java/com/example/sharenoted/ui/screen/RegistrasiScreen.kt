@@ -1,4 +1,4 @@
-package com.example.sharenoted.registrasi
+package com.example.sharenoted.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
