@@ -24,7 +24,7 @@ fun LoginScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F5F5))
+            .background(Color.White)
             .padding(24.dp),
 
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -34,20 +34,13 @@ fun LoginScreen() {
         Image(
             painter = painterResource(id = R.drawable.logo),
             contentDescription = "Logo",
-            modifier = Modifier.size(80.dp)
+            modifier = Modifier.size(120.dp)
         )
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = "ShareNoted",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color(0xFF2979FF)
-        )
-
-        Text(
-            text = "Intellectual clarity and effortless sharing.",
+            text = "Write, share, and connect through notes.",
             color = Color.Gray,
             fontSize = 14.sp
         )
@@ -56,7 +49,15 @@ fun LoginScreen() {
 
         Card(
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp)
+            shape = RoundedCornerShape(16.dp),
+
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White
+            ),
+
+            elevation = CardDefaults.cardElevation(
+                defaultElevation = 6.dp
+            )
         ) {
 
             Column(
@@ -75,7 +76,12 @@ fun LoginScreen() {
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = {
                         Text("name@example.com")
-                    }
+                    },
+
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedContainerColor = Color.White,
+                        focusedContainerColor = Color.White
+                    )
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -90,7 +96,16 @@ fun LoginScreen() {
                         password = it
                     },
                     modifier = Modifier.fillMaxWidth(),
-                    visualTransformation = PasswordVisualTransformation()
+                    visualTransformation = PasswordVisualTransformation(),
+
+                    placeholder = {
+                        Text("Enter your password")
+                    },
+
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedContainerColor = Color.White,
+                        focusedContainerColor = Color.White
+                    )
                 )
 
                 Spacer(modifier = Modifier.height(24.dp))
